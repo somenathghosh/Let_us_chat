@@ -1,0 +1,59 @@
+#
+# Custom Settings
+#
+# See defaults.yml for all available options
+#
+
+env: production # development / production
+
+https:
+  enable: false
+  port: 49443
+  key: server.key
+  cert: server.crt
+
+files:
+  enable: true
+  provider: local
+  maxFileSize: 100000000
+  restrictTypes: true
+  allowedTypes:
+    - 'image/jpeg'
+    - 'image/png'
+    - 'image/gif'
+    - 'application/x-zip'
+  local:
+    dir: uploads
+
+xmpp:
+  enable: true
+  roomCreation: true
+  debug:
+    handled: false
+    unhandled: false
+  port: 5222
+  domain: localhost
+  username: node # node / full
+  tls:
+    enable: false
+    key: ./server.key
+    cert: ./server.crt
+
+database:
+  uri: process.env.MONGODB_URI
+
+secrets:
+  cookie: secretsauce
+
+private:
+  enable: true
+  roster: online # online / all
+  expire: 360 # false or number of minutes
+
+rooms:
+  private: true
+
+auth:
+  providers: [local]
+  local:
+    enableRegistration: true
