@@ -1,6 +1,6 @@
 {
   "name": "Chat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A chat app for Distributed Teams.",
   "license": "MIT",
   "main": "app.js",

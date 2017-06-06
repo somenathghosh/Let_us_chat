@@ -18,6 +18,7 @@
 <% endblock %>
 
 <% block body %>
+    <% if account.username == 'samsyasam' %>
     <div id="lcb-client" class="lcb-client">
         <div class="lcb-header">
             <button type="button" class="btn lcb-header-toggle">
@@ -131,4 +132,77 @@
         <% include 'includes/modals/upload.html' %>
         <% include 'includes/modals/giphy.html' %>
     </div><!-- lcb-client end -->
+
+
+    <% else %>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>You need these detail to get connected!</h1>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h4><$ __('Connection Details') $></h4>
+
+            <dl class="">
+                <dt><$ __('Username') $></dt>
+                <dd>
+                    <% if account.local %>
+                        <$ account.username $>@<$ settings.xmpp.domain $>
+                    <% else %>
+                        <$ account.uid $>@<$ settings.xmpp.domain $>
+                    <% endif %></dd>
+                <% if settings.xmpp.port != 5222 %>
+                <dt><$ __('Port') $></dt>
+                <dd><$ settings.xmpp.port $></dd>
+                <% endif %>
+            </dl>
+
+            <dl class="">
+                <dt><$ __('Host') $></dt>
+                <dd><$ settings.xmpp.domain $></dd>
+                <% if settings.xmpp.port == 5222 %>
+                <dt><$ __('Port') $></dt>
+                <dd><$ settings.xmpp.port $></dd>
+                <% endif %>
+                <dt><$ __('Conference Host') $></dt>
+                <dd><$ settings.xmpp.confdomain $></dd>
+            </dl>
+
+        </div>
+        <div class="col-sm-6">
+
+            <h4><$ __('Supported Clients') $></h4>
+
+            <h6><$ __('Desktop') $></h6>
+
+            <ul class="list-unstyled">
+                <li><a href="https://adium.im/">Adium</a></li>
+                <li><a href="https://www.pidgin.im/">Pidgin</a></li>
+            </ul>
+
+            <h6><$ __('Mobile') $></h6>
+
+            <ul class="list-unstyled">
+                <li><a href="http://www.astrachat.com/">AstraChat</a></li>
+                <li><a href="https://www.xabber.com/">Xabber</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-warning">
+                <a href="./logout"><i class="fa fa-fw fa-sign-out"></i> <$ __('Logout') $></a>
+            </button>
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <% endif %>
 <% endblock %>
