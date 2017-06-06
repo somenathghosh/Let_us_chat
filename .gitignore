@@ -1,3 +1,4 @@
+.editorconfig
 .env
 server.crt
 server.key
