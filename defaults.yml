@@ -10,7 +10,7 @@ http:
   port: 49580
 
 https:
-  enable: false
+  enable: true
   host:
   port: 49443
   key: key.pem

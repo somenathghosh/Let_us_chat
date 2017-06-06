@@ -7,7 +7,7 @@
 env: production # development / production
 
 https:
-  enable: false
+  enable: true
   port: 49443
   key: server.key
   cert: server.crt
